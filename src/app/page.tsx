@@ -227,6 +227,16 @@ export default function Home() {
               </div>
             </RevealOnScroll>
           </div>
+          <div className="flex space-x-6">
+            <a
+              href="https://drive.google.com/drive/folders/18wgqHzPdNuto9zA3bfgSU7cn73zOxhfN?usp=sharing"
+              className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 transition-colors duration-300"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Certificates Drive Link
+            </a>
+          </div>
         </div>
       </section>
 
