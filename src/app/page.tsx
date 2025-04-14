@@ -159,7 +159,6 @@ export default function Home() {
                     with encryption, email verification, and 2FA support.
                   </p>
                   <div className="flex gap-2">
-                    
                     <a
                       href="https://github.com/harshil748/PyLockv2"
                       className="px-4 py-2 text-sm font-medium rounded border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300"
@@ -188,7 +187,6 @@ export default function Home() {
                     An autonomous robot designed to follow a path using infrared
                     sensors and microcontroller logic for real-time movement.
                   </p>
-                  
                 </div>
               </div>
             </RevealOnScroll>
@@ -262,7 +260,8 @@ export default function Home() {
       <footer className="py-8 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700">
         <div className="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center">
           <p className="mb-4 sm:mb-0">
-            &copy; {new Date().getFullYear()} Harshil Patel. All rights reserved.
+            &copy; {new Date().getFullYear()} Harshil Patel. All rights
+            reserved.
           </p>
           <div className="flex space-x-6">
             <a
