@@ -17,11 +17,10 @@ export default function Home() {
         <RevealOnScroll>
           <div className="max-w-3xl mx-auto">
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600">
-              Hello, I'm <span className="block mt-2">Your Name</span>
+              Hello, I'm <span className="block mt-2">Harshil Patel</span>
             </h1>
             <p className="text-xl sm:text-2xl mb-8 text-gray-700 dark:text-gray-300">
-              Full Stack Developer passionate about creating beautiful,
-              functional, and user-centered digital experiences
+              {/* write anything here*/}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
@@ -56,23 +55,34 @@ export default function Home() {
             <RevealOnScroll direction="right" delay={200}>
               <div className="w-full md:w-full flex justify-center">
                 <div className="w-60 h-60 rounded-full overflow-hidden border-4 border-blue-600 shadow-lg">
-                  <div className="w-full h-full bg-gray-300 dark:bg-gray-700 flex items-center justify-center text-gray-500 dark:text-gray-400">
-                    <span className="text-lg">Your Photo</span>
-                  </div>
+                  <Image
+                    src="/images/IMG_5642.png"
+                    alt="Harshil Patel"
+                    width={240}
+                    height={240}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
               </div>
             </RevealOnScroll>
             <RevealOnScroll direction="left" delay={400}>
               <div className="w-full md:w-full">
                 <p className="text-lg leading-relaxed mb-6">
-                  I'm a passionate web developer with expertise in modern
-                  front-end and back-end technologies. My journey in tech
-                  started [your background]. I love solving complex problems and
-                  creating intuitive, responsive websites.
+                  I’m a Computer Engineering student with a strong interest in
+                  building practical, secure software solutions. Over the past
+                  year, I’ve worked on several projects ranging from password
+                  managers and note-taking apps to blockchain analysis tools,
+                  using technologies like Python, JavaScript, Node.js, and
+                  Electron. I enjoy working on both the frontend and backend,
+                  and I’ve recently started diving into areas like cybersecurity
+                  and machine learning. I’m now looking for a summer internship
+                  where I can apply what I’ve learned, gain real-world
+                  experience, and contribute to meaningful projects in a team
+                  setting.
                 </p>
                 <p className="text-lg leading-relaxed">
-                  When I'm not coding, you can find me [your hobbies or
-                  interests]. I'm always eager to learn new technologies and
+                  When I'm not coding, you can find me swimming or playing
+                  basketball. I'm always eager to learn new technologies and
                   improve my skills to build better digital solutions.
                 </p>
               </div>
@@ -104,6 +114,9 @@ export default function Home() {
               "Tailwind CSS",
               "HTML",
               "CSS",
+              "Python",
+              "Java",
+              "Machine Learning",
             ].map((skill, index) => (
               <RevealOnScroll key={skill} delay={100 * index}>
                 <div className="bg-white dark:bg-gray-700 rounded-lg p-6 shadow-md text-center transform hover:scale-105 transition-transform duration-300">
@@ -128,41 +141,90 @@ export default function Home() {
           </RevealOnScroll>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Project Cards - Replace with your actual projects */}
-            {[1, 2, 3].map((project, index) => (
-              <RevealOnScroll key={project} delay={300 * index}>
-                <div className="bg-gray-100 dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg group card-hover">
-                  <div className="h-48 bg-gray-300 dark:bg-gray-700 flex items-center justify-center">
-                    <span className="text-gray-500 dark:text-gray-400">
-                      Project Image
-                    </span>
-                  </div>
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold mb-2">
-                      Project {project}
-                    </h3>
-                    <p className="text-gray-700 dark:text-gray-300 mb-4">
-                      A brief description of this amazing project and the
-                      technologies used to build it.
-                    </p>
-                    <div className="flex gap-2">
-                      <a
-                        href="#"
-                        className="px-4 py-2 text-sm font-medium rounded bg-blue-600 hover:bg-blue-700 text-white transition-colors duration-300"
-                      >
-                        View Project
-                      </a>
-                      <a
-                        href="#"
-                        className="px-4 py-2 text-sm font-medium rounded border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300"
-                      >
-                        GitHub
-                      </a>
-                    </div>
+            {/* Project Cards */}
+            <RevealOnScroll delay={0}>
+              <div className="bg-gray-100 dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg group card-hover">
+                <Image
+                  src="/images/pylock.png"
+                  alt="PyLock"
+                  width={512}
+                  height={512}
+                  className="w-full h-full object-cover"
+                />
+                <div className="p-6">
+                  <h3 className="text-xl font-bold mb-2">PyLock</h3>
+                  <p className="text-gray-700 dark:text-gray-300 mb-4">
+                    A secure password manager built using Python and Tkinter
+                    with encryption, email verification, and 2FA support.
+                  </p>
+                  <div className="flex gap-2">
+                    
+                    <a
+                      href="https://github.com/harshil748/PyLockv2"
+                      className="px-4 py-2 text-sm font-medium rounded border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300"
+                    >
+                      GitHub
+                    </a>
                   </div>
                 </div>
-              </RevealOnScroll>
-            ))}
+              </div>
+            </RevealOnScroll>
+
+            <RevealOnScroll delay={300}>
+              <div className="bg-gray-100 dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg group card-hover">
+                <Image
+                  src="/images/IMG_5C54.png"
+                  alt="Car"
+                  width={512}
+                  height={512}
+                  className="w-full h-full object-cover"
+                />
+                <div className="p-6">
+                  <h3 className="text-xl font-bold mb-2">
+                    Line Following Robot
+                  </h3>
+                  <p className="text-gray-700 dark:text-gray-300 mb-4">
+                    An autonomous robot designed to follow a path using infrared
+                    sensors and microcontroller logic for real-time movement.
+                  </p>
+                  
+                </div>
+              </div>
+            </RevealOnScroll>
+
+            <RevealOnScroll delay={600}>
+              <div className="bg-gray-100 dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg group card-hover">
+                <Image
+                  src="/images/portfoilo.png"
+                  alt="Car"
+                  width={512}
+                  height={512}
+                  className="w-full h-full object-cover"
+                />
+                <div className="p-6">
+                  <h3 className="text-xl font-bold mb-2">Portfolio Website</h3>
+                  <p className="text-gray-700 dark:text-gray-300 mb-4">
+                    This personal portfolio site showcasing my projects, skills,
+                    and contact information, built with Next.js and Tailwind
+                    CSS.
+                  </p>
+                  <div className="flex gap-2">
+                    <a
+                      href="#"
+                      className="px-4 py-2 text-sm font-medium rounded bg-blue-600 hover:bg-blue-700 text-white transition-colors duration-300"
+                    >
+                      View Project
+                    </a>
+                    <a
+                      href="https://github.com/harshil748/portfolio"
+                      className="px-4 py-2 text-sm font-medium rounded border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300"
+                    >
+                      GitHub
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </RevealOnScroll>
           </div>
         </div>
       </section>
@@ -240,19 +302,33 @@ export default function Home() {
       <footer className="py-8 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700">
         <div className="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center">
           <p className="mb-4 sm:mb-0">
-            &copy; {new Date().getFullYear()} Your Name. All rights reserved.
+            &copy; {new Date().getFullYear()} Harshil Patel. All rights reserved.
           </p>
           <div className="flex space-x-6">
-            {/* Social Icons - Replace with your actual social links */}
-            {["GitHub", "LinkedIn", "Twitter"].map((social) => (
-              <a
-                key={social}
-                href="#"
-                className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 transition-colors duration-300"
-              >
-                {social}
-              </a>
-            ))}
+            <a
+              href="https://github.com/harshil748"
+              className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 transition-colors duration-300"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub
+            </a>
+            <a
+              href="https://www.linkedin.com/in/harshil748/"
+              className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 transition-colors duration-300"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              LinkedIn
+            </a>
+            <a
+              href="https://x.com/Harshil748"
+              className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 transition-colors duration-300"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              X(Twitter)
+            </a>
           </div>
         </div>
       </footer>
