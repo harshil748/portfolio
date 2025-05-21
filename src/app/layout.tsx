@@ -5,28 +5,26 @@ import ThemeProvider from "./components/ThemeProvider";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
+	subsets: ["latin"],
+	variable: "--font-inter",
 });
 
 export const metadata: Metadata = {
-  title: "Harshil Patel | Portfolio",
-  description: "Full Stack Developer portfolio showcasing projects and skills",
+	title: "Harshil Patel | Portfolio",
+	description: "Full Stack Developer portfolio showcasing projects and skills",
 };
 
 export default function RootLayout({
-  children,
+	children,
 }: Readonly<{
-  children: React.ReactNode;
+	children: React.ReactNode;
 }>) {
-  return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} antialiased`}>
-        <ThemeProvider>
-          { children }
-        </ThemeProvider>
-        <SpeedInsights />
-      </body>
-    </html>
-  );
+	return (
+		<html lang="en" suppressHydrationWarning>
+			<body className={`${inter.variable} antialiased`}>
+				<ThemeProvider>{children}</ThemeProvider>
+				<SpeedInsights />
+			</body>
+		</html>
+	);
 }
