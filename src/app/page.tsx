@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar";
 import ThemeToggle from "./components/ThemeToggle";
 import RevealOnScroll from "./components/RevealOnScroll";
 import ContactForm from "./components/ContactForm";
+import SkillIcon from "./components/SkillIcon";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -132,24 +133,86 @@ export default function Home() {
 					<div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4'>
 						{/* Skill Items */}
 						{[
-							{ name: "JavaScript", category: "Frontend" },
-							{ name: "TypeScript", category: "Frontend" },
-							{ name: "React", category: "Frontend" },
-							{ name: "Next.js", category: "Frontend" },
-							{ name: "Node.js", category: "Backend" },
-							{ name: "Tailwind CSS", category: "Styling" },
-							{ name: "HTML", category: "Frontend" },
-							{ name: "CSS", category: "Styling" },
-							{ name: "Python", category: "Backend" },
-							{ name: "Java", category: "Backend" },
-							{ name: "Machine Learning", category: "AI/ML" },
-							{ name: "Cybersecurity", category: "Security" },
+							{
+								name: "JavaScript",
+								category: "Frontend",
+								icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+								color: "bg-yellow-100 dark:bg-yellow-900/30",
+							},
+							{
+								name: "TypeScript",
+								category: "Frontend",
+								icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
+								color: "bg-blue-100 dark:bg-blue-900/30",
+							},
+							{
+								name: "React",
+								category: "Frontend",
+								icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+								color: "bg-cyan-100 dark:bg-cyan-900/30",
+							},
+							{
+								name: "Next.js",
+								category: "Frontend",
+								icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
+								color: "bg-gray-100 dark:bg-gray-900/30",
+							},
+							{
+								name: "Node.js",
+								category: "Backend",
+								icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
+								color: "bg-green-100 dark:bg-green-900/30",
+							},
+							{
+								name: "Tailwind CSS",
+								category: "Styling",
+								icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg",
+								color: "bg-teal-100 dark:bg-teal-900/30",
+							},
+							{
+								name: "HTML",
+								category: "Frontend",
+								icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
+								color: "bg-orange-100 dark:bg-orange-900/30",
+							},
+							{
+								name: "CSS",
+								category: "Styling",
+								icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
+								color: "bg-blue-100 dark:bg-blue-900/30",
+							},
+							{
+								name: "Python",
+								category: "Backend",
+								icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+								color: "bg-yellow-100 dark:bg-yellow-900/30",
+							},
+							{
+								name: "Java",
+								category: "Backend",
+								icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
+								color: "bg-red-100 dark:bg-red-900/30",
+							},
+							{
+								name: "Machine Learning",
+								category: "AI/ML",
+								icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg",
+								color: "bg-orange-100 dark:bg-orange-900/30",
+							},
+							{
+								name: "Cybersecurity",
+								category: "Security",
+								icon: "https://img.icons8.com/fluency/48/security-shield-green.png",
+								color: "bg-emerald-100 dark:bg-emerald-900/30",
+							},
 						].map((skill, index) => (
 							<RevealOnScroll key={skill.name} delay={50 * index}>
 								<div className='card-professional p-4 text-center group'>
-									<div className='w-12 h-12 mx-auto mb-3 bg-gradient-to-br from-amber-100 to-amber-200 dark:from-amber-900/30 dark:to-amber-800/30 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-200'>
-										<div className='w-6 h-6 bg-gradient-to-br from-amber-500 to-orange-500 rounded-lg'></div>
-									</div>
+									<SkillIcon
+										icon={skill.icon}
+										name={skill.name}
+										color={skill.color}
+									/>
 									<h3 className='font-semibold text-sm text-slate-900 dark:text-slate-100 mb-1'>
 										{skill.name}
 									</h3>
