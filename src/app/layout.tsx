@@ -26,19 +26,22 @@ export default function RootLayout({
               const setupPortfolioEffects = () => {
                 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
                 const glow = document.getElementById('cursor-glow');
+                let observer;
+
+                const handleMouseMove = (e) => {
+                  if (glow) {
+                    glow.style.left = e.clientX + 'px';
+                    glow.style.top = e.clientY + 'px';
+                  }
+                };
 
                 if (prefersReducedMotion) {
                   if (glow) glow.style.display = 'none';
                 } else {
-                  document.addEventListener('mousemove', (e) => {
-                    if (glow) {
-                      glow.style.left = e.clientX + 'px';
-                      glow.style.top = e.clientY + 'px';
-                    }
-                  });
+                  document.addEventListener('mousemove', handleMouseMove, { passive: true });
                 }
 
-                const observer = new IntersectionObserver((entries) => {
+                observer = new IntersectionObserver((entries) => {
                   entries.forEach(entry => {
                     if (entry.isIntersecting) {
                       entry.target.classList.add('section-visible');
@@ -51,6 +54,14 @@ export default function RootLayout({
                   el.classList.add('section-hidden');
                   observer.observe(el);
                 });
+
+                const cleanup = () => {
+                  document.removeEventListener('mousemove', handleMouseMove);
+                  if (observer) observer.disconnect();
+                  window.removeEventListener('pagehide', cleanup);
+                };
+
+                window.addEventListener('pagehide', cleanup, { once: true });
               };
 
               if (document.readyState === 'loading') {

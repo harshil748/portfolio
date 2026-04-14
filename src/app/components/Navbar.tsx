@@ -10,7 +10,9 @@ export default function Navbar() {
   const [activeSection, setActiveSection] = useState("about");
 
   useEffect(() => {
-    const handleScroll = () => {
+    let ticking = false;
+
+    const updateScrollState = () => {
       setIsScrolled(window.scrollY > 50);
 
       let current = sections[0];
@@ -21,10 +23,18 @@ export default function Navbar() {
         if (window.scrollY >= top) current = id;
       }
       setActiveSection(current);
+      ticking = false;
     };
 
-    window.addEventListener("scroll", handleScroll);
-    handleScroll();
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updateScrollState);
+        ticking = true;
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    updateScrollState();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
