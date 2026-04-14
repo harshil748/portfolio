@@ -16,18 +16,21 @@ export default function TypewriterRole() {
 
   useEffect(() => {
     const current = roles[index];
+    const delay = deleting ? 50 : displayed.length === current.length ? 1500 : 100;
+
     const timeout = setTimeout(() => {
       if (!deleting && displayed.length < current.length) {
         setDisplayed(current.slice(0, displayed.length + 1));
       } else if (!deleting && displayed.length === current.length) {
-        setTimeout(() => setDeleting(true), 1500);
+        setDeleting(true);
       } else if (deleting && displayed.length > 0) {
         setDisplayed(displayed.slice(0, -1));
-      } else if (deleting && displayed.length === 0) {
+      } else {
         setDeleting(false);
-        setIndex((index + 1) % roles.length);
+        setIndex((prev) => (prev + 1) % roles.length);
       }
-    }, deleting ? 50 : 100);
+    }, delay);
+
     return () => clearTimeout(timeout);
   }, [displayed, deleting, index]);
 
