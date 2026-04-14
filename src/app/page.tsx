@@ -15,7 +15,7 @@ const projects = [
 	{
 		name: "VoiceAPI",
 		category: "Backend API",
-		image: "/images/portfoilo.png",
+		image: "/images/portfolio.png",
 		description:
 			"A voice-focused API platform for processing audio requests with secure endpoints and predictable performance for app integrations.",
 		github: "https://github.com/harshil748/VoiceAPI",
@@ -94,7 +94,7 @@ const projects = [
 	{
 		name: "Portfolio Website",
 		category: "Web Dev",
-		image: "/images/portfoilo.png",
+		image: "/images/portfolio.png",
 		description:
 			"A responsive personal portfolio showcasing projects, skills, and experience with modern frontend tooling.",
 		github: "https://github.com/harshil748/portfolio",
@@ -494,16 +494,13 @@ export default function Home() {
 								className='inline-flex items-center px-6 py-3 text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-amber-600 dark:hover:text-amber-400 transition-colors duration-200 border border-slate-300 dark:border-slate-600 rounded-lg hover:border-amber-300 dark:hover:border-amber-600'
 								target='_blank'
 								rel='noopener noreferrer'>
-								Download Resume (Optional)
-							</a>
-							<a
-								href={resumeUrl}
-								className='inline-flex items-center px-6 py-3 text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-amber-600 dark:hover:text-amber-400 transition-colors duration-200 border border-slate-300 dark:border-slate-600 rounded-lg hover:border-amber-300 dark:hover:border-amber-600'
-								target='_blank'
-								rel='noopener noreferrer'>
 								View Certificates & Achievements
 							</a>
 						</div>
+						<p className='mt-4 text-sm text-slate-500 dark:text-slate-400'>
+							To download: use your browser&apos;s download option after opening
+							the resume in a new tab.
+						</p>
 					</div>
 				</div>
 			</section>
