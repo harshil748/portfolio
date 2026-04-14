@@ -2,11 +2,10 @@
 import { useEffect, useState } from "react";
 
 const roles = [
-  "CS/CE Student",
-  "AI/ML Engineer Intern",
-  "Blockchain Developer",
-  "Hackathon Builder",
-  "Voice AI Builder",
+  "Computer Engineering Student",
+  "Cybersecurity Enthusiast",
+  "Mobile App Developer",
+  "Machine Learning Developer",
 ];
 
 export default function TypewriterRole() {
