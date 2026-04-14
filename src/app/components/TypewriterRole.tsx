@@ -13,8 +13,19 @@ export default function TypewriterRole() {
   const [index, setIndex] = useState(0);
   const [displayed, setDisplayed] = useState("");
   const [deleting, setDeleting] = useState(false);
+  const [reduceMotion, setReduceMotion] = useState(false);
 
   useEffect(() => {
+    const media = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setReduceMotion(media.matches);
+    const onChange = () => setReduceMotion(media.matches);
+    media.addEventListener("change", onChange);
+    return () => media.removeEventListener("change", onChange);
+  }, []);
+
+  useEffect(() => {
+    if (reduceMotion) return;
+
     const current = roles[index];
     const delay = deleting ? 50 : displayed.length === current.length ? 1500 : 100;
 
@@ -32,12 +43,14 @@ export default function TypewriterRole() {
     }, delay);
 
     return () => clearTimeout(timeout);
-  }, [displayed, deleting, index]);
+  }, [displayed, deleting, index, reduceMotion]);
+
+  const text = reduceMotion ? roles[0] : displayed;
 
   return (
     <p className="text-xl md:text-2xl text-ivory-muted font-[Space_Grotesk]">
-      <span className="text-emerald">{displayed}</span>
-      <span className="animate-pulse text-gold ml-0.5">|</span>
+      <span className="text-emerald">{text}</span>
+      {!reduceMotion && <span className="animate-pulse text-gold ml-0.5">|</span>}
     </p>
   );
 }

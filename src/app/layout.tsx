@@ -18,7 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className="antialiased relative">
-        <div className="cursor-glow" id="cursor-glow" />
+        <div className="cursor-glow" id="cursor-glow" aria-hidden="true" style={{ display: "none" }} />
         <ThemeProvider>{children}</ThemeProvider>
         <script
           dangerouslySetInnerHTML={{
@@ -50,6 +50,7 @@ export default function RootLayout({
                 if (prefersReducedMotion) {
                   if (glow) glow.style.display = 'none';
                 } else {
+                  if (glow) glow.style.display = 'block';
                   document.addEventListener('mousemove', handleMouseMove, { passive: true });
                 }
 

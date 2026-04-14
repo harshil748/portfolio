@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 
 const sections = ["about", "skills", "projects", "certifications", "contact"];
+const NAVBAR_OFFSET_HEIGHT = 120;
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -17,7 +18,7 @@ export default function Navbar() {
       sectionOffsets = sections
         .map((id) => {
           const el = document.getElementById(id);
-          return el ? { id, top: el.offsetTop - 120 } : null;
+          return el ? { id, top: el.offsetTop - NAVBAR_OFFSET_HEIGHT } : null;
         })
         .filter((v): v is { id: string; top: number } => v !== null);
     };
