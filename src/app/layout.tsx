@@ -24,13 +24,19 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: `
               const setupPortfolioEffects = () => {
+                const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
                 const glow = document.getElementById('cursor-glow');
-                document.addEventListener('mousemove', (e) => {
-                  if (glow) {
-                    glow.style.left = e.clientX + 'px';
-                    glow.style.top = e.clientY + 'px';
-                  }
-                });
+
+                if (prefersReducedMotion) {
+                  if (glow) glow.style.display = 'none';
+                } else {
+                  document.addEventListener('mousemove', (e) => {
+                    if (glow) {
+                      glow.style.left = e.clientX + 'px';
+                      glow.style.top = e.clientY + 'px';
+                    }
+                  });
+                }
 
                 const observer = new IntersectionObserver((entries) => {
                   entries.forEach(entry => {

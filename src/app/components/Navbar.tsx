@@ -13,7 +13,7 @@ export default function Navbar() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
 
-      let current = activeSection;
+      let current = sections[0];
       for (const id of sections) {
         const el = document.getElementById(id);
         if (!el) continue;
@@ -26,7 +26,7 @@ export default function Navbar() {
     window.addEventListener("scroll", handleScroll);
     handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [activeSection]);
+  }, []);
 
   return (
     <nav
