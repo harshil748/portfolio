@@ -8,6 +8,111 @@ import SkillIcon from "./components/SkillIcon";
 
 const inter = Inter({ subsets: ["latin"] });
 
+const resumeUrl =
+	"https://drive.google.com/drive/folders/18wgqHzPdNuto9zA3bfgSU7cn73zOxhfN?usp=sharing";
+
+const projects = [
+	{
+		name: "VoiceAPI",
+		category: "Backend API",
+		image: "/images/portfolio.png",
+		description:
+			"A voice-focused API platform for processing audio requests with secure endpoints and predictable performance for app integrations.",
+		github: "https://github.com/harshil748/VoiceAPI",
+		live: "",
+		badgeStyle:
+			"bg-violet-100 dark:bg-violet-900/50 text-violet-800 dark:text-violet-200",
+		caseStudy: {
+			challenge:
+				"Designing reliable voice-processing endpoints that stay responsive under variable request volumes.",
+			approach:
+				"Structured API routes, validation layers, and clear request/response contracts with focused error handling.",
+			outcome:
+				"Delivered an integration-ready voice backend foundation with improved reliability and maintainability.",
+			stack: ["Node.js", "API Design", "JavaScript", "Security Controls"],
+		},
+	},
+	{
+		name: "Sentinel-Shield",
+		category: "Cybersecurity",
+		image: "/images/pylock.png",
+		description:
+			"A security-oriented project focused on threat-aware workflows and defensive controls for safer application behavior.",
+		github: "https://github.com/harshil748/Sentinel-Shield",
+		live: "",
+		badgeStyle:
+			"bg-emerald-100 dark:bg-emerald-900/50 text-emerald-800 dark:text-emerald-200",
+		caseStudy: {
+			challenge:
+				"Combining practical security checks with usability so core workflows remain straightforward.",
+			approach:
+				"Applied layered checks, defensive defaults, and monitoring-friendly patterns across key user flows.",
+			outcome:
+				"Strengthened security posture while keeping the experience clear for users and maintainers.",
+			stack: ["Python", "Security Engineering", "Risk Controls", "Automation"],
+		},
+	},
+	{
+		name: "PyLock",
+		category: "Security",
+		image: "/images/pylock.png",
+		description:
+			"A secure password manager built using Python and Tkinter with encryption, email verification, and 2FA support.",
+		github: "https://github.com/harshil748/PyLockv2",
+		live: "",
+		badgeStyle:
+			"bg-amber-100 dark:bg-amber-900/50 text-amber-800 dark:text-amber-200",
+		caseStudy: {
+			challenge:
+				"Building a local-first credential manager with strong protection and accessible user flows.",
+			approach:
+				"Implemented encrypted storage, multi-step verification, and structured credential management screens.",
+			outcome:
+				"Created a practical secure credential workflow with stronger trust and account safety.",
+			stack: ["Python", "Tkinter", "Encryption", "2FA"],
+		},
+	},
+	{
+		name: "Line Following Robot",
+		category: "Hardware",
+		image: "/images/IMG_5C54.png",
+		description:
+			"An autonomous robot designed to follow predefined paths using IR sensors and microcontroller-based control logic.",
+		github: "",
+		live: "",
+		badgeStyle: "bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200",
+		caseStudy: {
+			challenge:
+				"Maintaining stable line tracking in changing surface and lighting conditions.",
+			approach:
+				"Calibrated sensor readings and tuned movement logic for consistent real-time correction.",
+			outcome:
+				"Achieved smoother autonomous path-following performance during iterative hardware tests.",
+			stack: ["Embedded Systems", "IR Sensors", "Microcontroller Logic", "Control Tuning"],
+		},
+	},
+	{
+		name: "Portfolio Website",
+		category: "Web Dev",
+		image: "/images/portfolio.png",
+		description:
+			"A responsive personal portfolio showcasing projects, skills, and experience with modern frontend tooling.",
+		github: "https://github.com/harshil748/portfolio",
+		live: "",
+		badgeStyle:
+			"bg-green-100 dark:bg-green-900/50 text-green-800 dark:text-green-200",
+		caseStudy: {
+			challenge:
+				"Presenting technical depth and personal brand in a clean, fast, and recruiter-friendly experience.",
+			approach:
+				"Used section-first content design, responsive UI, theme support, and smooth interaction patterns.",
+			outcome:
+				"Produced a polished portfolio experience that highlights technical skills and project outcomes.",
+			stack: ["Next.js", "TypeScript", "Tailwind CSS", "React"],
+		},
+	},
+];
+
 export default function Home() {
 	return (
 		<div className='min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300'>
@@ -48,6 +153,13 @@ export default function Home() {
 							</a>
 							<a href='#contact' className='btn-secondary'>
 								Get In Touch
+							</a>
+							<a
+								href={resumeUrl}
+								className='btn-secondary'
+								target='_blank'
+								rel='noopener noreferrer'>
+								Open Resume
 							</a>
 						</div>
 					</div>
@@ -244,156 +356,151 @@ export default function Home() {
 					</RevealOnScroll>
 
 					<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12'>
-						{/* Project Cards */}
-						<RevealOnScroll delay={0}>
-							<div className='card-professional overflow-hidden group'>
-								<div className='relative overflow-hidden'>
-									<Image
-										src='/images/pylock.png'
-										alt='PyLock'
-										width={400}
-										height={240}
-										className='w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500'
-									/>
-									<div className='absolute top-4 left-4'>
-										<span className='px-3 py-1 bg-amber-100 dark:bg-amber-900/50 text-amber-800 dark:text-amber-200 text-xs font-medium rounded-full'>
-											Security
-										</span>
+						{projects.map((project, index) => (
+							<RevealOnScroll key={project.name} delay={index * 100}>
+								<div className='card-professional overflow-hidden group h-full'>
+									<div className='relative overflow-hidden'>
+										<Image
+											src={project.image}
+											alt={project.name}
+											width={400}
+											height={240}
+											className='w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500'
+										/>
+										<div className='absolute top-4 left-4'>
+											<span
+												className={`px-3 py-1 ${project.badgeStyle} text-xs font-medium rounded-full`}>
+												{project.category}
+											</span>
+										</div>
+									</div>
+									<div className='p-6'>
+										<h3 className='text-xl font-bold mb-3 text-slate-900 dark:text-slate-100'>
+											{project.name}
+										</h3>
+										<p className='text-slate-600 dark:text-slate-400 mb-4 leading-relaxed'>
+											{project.description}
+										</p>
+										{project.github && (
+											<div className='flex gap-3'>
+												<a
+													href={project.github}
+													className='inline-flex items-center px-4 py-2 text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-amber-600 dark:hover:text-amber-400 transition-colors duration-200'
+													target='_blank'
+													rel='noopener noreferrer'>
+													<svg
+														className='w-4 h-4 mr-2'
+														fill='currentColor'
+														viewBox='0 0 20 20'>
+														<path
+															fillRule='evenodd'
+															d='M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z'
+															clipRule='evenodd'
+														/>
+													</svg>
+													GitHub
+												</a>
+											</div>
+										)}
 									</div>
 								</div>
-								<div className='p-6'>
-									<h3 className='text-xl font-bold mb-3 text-slate-900 dark:text-slate-100'>
-										PyLock
-									</h3>
-									<p className='text-slate-600 dark:text-slate-400 mb-4 leading-relaxed'>
-										A secure password manager built using Python and Tkinter
-										with encryption, email verification, and 2FA support for
-										enhanced security.
-									</p>
-									<div className='flex gap-3'>
-										<a
-											href='https://github.com/harshil748/PyLockv2'
-											className='inline-flex items-center px-4 py-2 text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-amber-600 dark:hover:text-amber-400 transition-colors duration-200'
-											target='_blank'
-											rel='noopener noreferrer'>
-											<svg
-												className='w-4 h-4 mr-2'
-												fill='currentColor'
-												viewBox='0 0 20 20'>
-												<path
-													fillRule='evenodd'
-													d='M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z'
-													clipRule='evenodd'
-												/>
-											</svg>
-											GitHub
-										</a>
-									</div>
-								</div>
-							</div>
-						</RevealOnScroll>
-
-						<RevealOnScroll delay={200}>
-							<div className='card-professional overflow-hidden group'>
-								<div className='relative overflow-hidden'>
-									<Image
-										src='/images/IMG_5C54.png'
-										alt='Line Following Robot'
-										width={400}
-										height={240}
-										className='w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500'
-									/>
-									<div className='absolute top-4 left-4'>
-										<span className='px-3 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200 text-xs font-medium rounded-full'>
-											Hardware
-										</span>
-									</div>
-								</div>
-								<div className='p-6'>
-									<h3 className='text-xl font-bold mb-3 text-slate-900 dark:text-slate-100'>
-										Line Following Robot
-									</h3>
-									<p className='text-slate-600 dark:text-slate-400 mb-4 leading-relaxed'>
-										An autonomous robot designed to follow a predefined path
-										using infrared sensors and microcontroller logic for precise
-										real-time movement control.
-									</p>
-								</div>
-							</div>
-						</RevealOnScroll>
-
-						<RevealOnScroll delay={400}>
-							<div className='card-professional overflow-hidden group'>
-								<div className='relative overflow-hidden'>
-									<Image
-										src='/images/portfoilo.png'
-										alt='Portfolio Website'
-										width={400}
-										height={240}
-										className='w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500'
-									/>
-									<div className='absolute top-4 left-4'>
-										<span className='px-3 py-1 bg-green-100 dark:bg-green-900/50 text-green-800 dark:text-green-200 text-xs font-medium rounded-full'>
-											Web Dev
-										</span>
-									</div>
-								</div>
-								<div className='p-6'>
-									<h3 className='text-xl font-bold mb-3 text-slate-900 dark:text-slate-100'>
-										Portfolio Website
-									</h3>
-									<p className='text-slate-600 dark:text-slate-400 mb-4 leading-relaxed'>
-										A responsive personal portfolio showcasing projects, skills,
-										and experience, built with Next.js, Tailwind CSS, and modern
-										web technologies.
-									</p>
-									<div className='flex gap-3'>
-										<a href='#' className='btn-primary text-sm px-4 py-2'>
-											Live Demo
-										</a>
-										<a
-											href='https://github.com/harshil748/portfolio'
-											className='inline-flex items-center px-4 py-2 text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-amber-600 dark:hover:text-amber-400 transition-colors duration-200'
-											target='_blank'
-											rel='noopener noreferrer'>
-											<svg
-												className='w-4 h-4 mr-2'
-												fill='currentColor'
-												viewBox='0 0 20 20'>
-												<path
-													fillRule='evenodd'
-													d='M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z'
-													clipRule='evenodd'
-												/>
-											</svg>
-											GitHub
-										</a>
-									</div>
-								</div>
-							</div>
-						</RevealOnScroll>
+							</RevealOnScroll>
+						))}
 					</div>
 
+					<RevealOnScroll delay={100}>
+						<div className='mb-12'>
+							<h3 className='text-2xl sm:text-3xl font-bold mb-8 text-slate-900 dark:text-slate-100 text-center'>
+								Project Case Studies
+							</h3>
+							<div className='space-y-6'>
+								{projects.map((project, index) => (
+									<div
+										key={`${project.name}-case-study`}
+										className='card-professional p-6 sm:p-8'>
+										<div className='flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4'>
+											<h4 className='text-xl font-bold text-slate-900 dark:text-slate-100'>
+												{project.name}
+											</h4>
+											<span
+												className={`inline-flex self-start px-3 py-1 ${project.badgeStyle} text-xs font-medium rounded-full`}>
+												Case Study #{index + 1}
+											</span>
+										</div>
+										<div className='grid md:grid-cols-3 gap-6'>
+											<div>
+												<h5 className='font-semibold mb-2 text-slate-900 dark:text-slate-100'>
+													Challenge
+												</h5>
+												<p className='text-slate-600 dark:text-slate-400 leading-relaxed'>
+													{project.caseStudy.challenge}
+												</p>
+											</div>
+											<div>
+												<h5 className='font-semibold mb-2 text-slate-900 dark:text-slate-100'>
+													Approach
+												</h5>
+												<p className='text-slate-600 dark:text-slate-400 leading-relaxed'>
+													{project.caseStudy.approach}
+												</p>
+											</div>
+											<div>
+												<h5 className='font-semibold mb-2 text-slate-900 dark:text-slate-100'>
+													Outcome
+												</h5>
+												<p className='text-slate-600 dark:text-slate-400 leading-relaxed'>
+													{project.caseStudy.outcome}
+												</p>
+											</div>
+										</div>
+										<div className='mt-5 flex flex-wrap gap-2'>
+											{project.caseStudy.stack.map((tech) => (
+												<span
+													key={`${project.name}-${tech}`}
+													className='px-3 py-1 text-xs font-medium rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300'>
+													{tech}
+												</span>
+											))}
+										</div>
+									</div>
+								))}
+							</div>
+						</div>
+					</RevealOnScroll>
+
 					<div className='text-center'>
-						<a
-							href='https://drive.google.com/drive/folders/18wgqHzPdNuto9zA3bfgSU7cn73zOxhfN?usp=sharing'
-							className='inline-flex items-center px-6 py-3 text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-amber-600 dark:hover:text-amber-400 transition-colors duration-200 border border-slate-300 dark:border-slate-600 rounded-lg hover:border-amber-300 dark:hover:border-amber-600'
-							target='_blank'
-							rel='noopener noreferrer'>
-							<svg
-								className='w-5 h-5 mr-2'
-								fill='none'
-								stroke='currentColor'
-								viewBox='0 0 24 24'>
-								<path
-									strokeLinecap='round'
-									strokeLinejoin='round'
-									strokeWidth={2}
-									d='M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z'
-								/>
-							</svg>
-							View Certificates & Achievements
-						</a>
+						<div className='flex flex-col sm:flex-row items-center justify-center gap-4'>
+							<a
+								href={resumeUrl}
+								className='inline-flex items-center px-6 py-3 text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-amber-600 dark:hover:text-amber-400 transition-colors duration-200 border border-slate-300 dark:border-slate-600 rounded-lg hover:border-amber-300 dark:hover:border-amber-600'
+								target='_blank'
+								rel='noopener noreferrer'>
+								<svg
+									className='w-5 h-5 mr-2'
+									fill='none'
+									stroke='currentColor'
+									viewBox='0 0 24 24'>
+									<path
+										strokeLinecap='round'
+										strokeLinejoin='round'
+										strokeWidth={2}
+										d='M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z'
+									/>
+								</svg>
+								Open Resume (New Tab)
+							</a>
+							<a
+								href={resumeUrl}
+								className='inline-flex items-center px-6 py-3 text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-amber-600 dark:hover:text-amber-400 transition-colors duration-200 border border-slate-300 dark:border-slate-600 rounded-lg hover:border-amber-300 dark:hover:border-amber-600'
+								target='_blank'
+								rel='noopener noreferrer'>
+								View Certificates & Achievements
+							</a>
+						</div>
+						<p className='mt-4 text-sm text-slate-500 dark:text-slate-400'>
+							To download: use your browser&apos;s download option after opening
+							the resume in a new tab.
+						</p>
 					</div>
 				</div>
 			</section>
