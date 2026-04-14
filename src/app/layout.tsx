@@ -27,11 +27,23 @@ export default function RootLayout({
                 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
                 const glow = document.getElementById('cursor-glow');
                 let observer;
+                let rafId = 0;
+                let latestX = 0;
+                let latestY = 0;
+
+                const renderGlow = () => {
+                  if (glow) {
+                    glow.style.left = latestX + 'px';
+                    glow.style.top = latestY + 'px';
+                  }
+                  rafId = 0;
+                };
 
                 const handleMouseMove = (e) => {
-                  if (glow) {
-                    glow.style.left = e.clientX + 'px';
-                    glow.style.top = e.clientY + 'px';
+                  latestX = e.clientX;
+                  latestY = e.clientY;
+                  if (!rafId) {
+                    rafId = window.requestAnimationFrame(renderGlow);
                   }
                 };
 
@@ -57,6 +69,7 @@ export default function RootLayout({
 
                 const cleanup = () => {
                   document.removeEventListener('mousemove', handleMouseMove);
+                  if (rafId) window.cancelAnimationFrame(rafId);
                   if (observer) observer.disconnect();
                   window.removeEventListener('pagehide', cleanup);
                 };

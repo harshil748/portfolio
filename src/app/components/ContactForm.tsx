@@ -17,7 +17,8 @@ export default function ContactForm() {
         () => {
           alert("Message sent successfully!");
         },
-        () => {
+        (error) => {
+          console.error("Email send failed:", error);
           alert("Failed to send message. Please try again.");
         }
       );
